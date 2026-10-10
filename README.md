@@ -1,3 +1,4 @@
+!CI
 # gha-taller · API de tareas para aprender GitHub Actions
 
 App de ejemplo del **Taller acelerado de GitHub Actions**.
