@@ -19,7 +19,7 @@ function createApp() {
   });
 
   app.get('/health', (req, res) => {
-    res.json({ status: 'ko' });
+    res.json({ status: 'ok' });
   });
 
   app.get('/api/version', (req, res) => {
