@@ -1,0 +1,36 @@
+name: 01 · Hola Actions
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: "¿A quién saludamos?"
+        default: "equipo"
+
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludo
+        env:
+          NOMBRE: ${{ inputs.nombre || 'equipo' }}
+        run: echo "Hola, $NOMBRE. Este job corre en $RUNNER_OS."
+
+      - name: Contexto del run
+        run: |
+          echo "Evento:  ${{ github.event_name }}"
+          echo "Rama:    ${{ github.ref_name }}"
+          echo "Commit:  ${{ github.sha }}"
+          echo "Autor:   ${{ github.actor }}"
+
+      - name: Descargar el código
+        uses: actions/checkout@v7
+
+      - name: Ver archivos del repo
+        run: ls -la
+
+      - name: Escribir un resumen del run
+        run: |
+          echo "### Hola desde GitHub Actions" >> "$GITHUB_STEP_SUMMARY"
+          echo "Commit \`${GITHUB_SHA::7}\` en la rama \`$GITHUB_REF_NAME\`" >> "$GITHUB_STEP_SUMMARY"
