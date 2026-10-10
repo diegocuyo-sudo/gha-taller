@@ -7,7 +7,7 @@ function createApp() {
   // Estado en memoria (suficiente para el taller)
   let nextId = 3;
   const tareas = [
-    { id: 1, titulo: 'Crear el primer workflow', hecha: true },
+    { id: 1, titulo: 'Desplegar con GitHub Actions', hecha: true },
     { id: 2, titulo: 'Publicar la imagen en GHCR', hecha: false },
   ];
 
