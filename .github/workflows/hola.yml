@@ -24,11 +24,11 @@ jobs:
           echo "Commit:  ${{ github.sha }}"
           echo "Autor:   ${{ github.actor }}"
 
-      - name: Ver archivos del repo
-        run: ls -la
-
       - name: Descargar el código
         uses: actions/checkout@v7
+
+      - name: Ver archivos del repo
+        run: ls -la
 
       - name: Escribir un resumen del run
         run: |
